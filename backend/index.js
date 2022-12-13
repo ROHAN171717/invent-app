@@ -1,13 +1,29 @@
 const express=require("express");
 const dotenv=require("dotenv");
 const mongoose=require("mongoose");
+const cors=require("cors");
+const bodyParser=require("body-parser");
+const userRoute=require("./routes/userRoute");
+
+
+
 
 const app=express();
 dotenv.config();
 
 //MIDDLEWARE
 app.use(express.json());
+app.use(express.urlencoded({ extended: false} ));
+app.use(bodyParser.json());
 
+
+//ROUTES MIDDLEWARE
+app.use("/users",userRoute);
+
+
+
+
+//ROUTES
 app.get("/",(req,res)=>{
     res.send("Home Page");
 });
