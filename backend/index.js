@@ -16,6 +16,7 @@ app.get("/",(req,res)=>{
 
 //MONGODB CONNECTION
 const MONGO_URL=process.env.MONGO_URL;
+
 mongoose.connect(MONGO_URL,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
