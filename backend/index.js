@@ -5,7 +5,8 @@ const cors=require("cors");
 const bodyParser=require("body-parser");
 const cookieParser=require("cookie-parser");
 const userRoute=require("./routes/userRoute");
-const errorHandler=require("./middleWare/errorMiddleware");
+const productRoute=require("./routes/productRoute");
+// const errorHandler=require("./middleWare/errorMiddleware");
 
 
 
@@ -16,12 +17,14 @@ dotenv.config();
 //MIDDLEWARE
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 app.use(express.urlencoded({ extended: false} ));
 app.use(bodyParser.json());
 
 
 //ROUTES MIDDLEWARE
 app.use("/users",userRoute);
+app.use("/products",productRoute);
 
 
 
