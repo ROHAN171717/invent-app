@@ -46,7 +46,12 @@ const createProduct = asyncHandler(async (req,res,next)=>{
 
 //GET ALL PRODUCTS
 const getProducts = asyncHandler(async (req,res,next)=>{
-    const products = await Product.find({ user: req.user.id }).sort("-createdAt");
+    console.log(req.user);
+    
+    const products = await Product.find({ user: req.user._id }).sort("-createdAt");
+    if(products.length===0){
+        res.status(400).send("No any Products...");
+    }
     res.status(200).json(products);
 });
 

@@ -6,6 +6,7 @@ const bodyParser=require("body-parser");
 const cookieParser=require("cookie-parser");
 const userRoute=require("./routes/userRoute");
 const productRoute=require("./routes/productRoute");
+const contactRoute=require("./routes/contactRoute");
 // const errorHandler=require("./middleWare/errorMiddleware");
 
 
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 //ROUTES MIDDLEWARE
 app.use("/users",userRoute);
 app.use("/products",productRoute);
+app.use("/contact",contactRoute);
 
 
 
